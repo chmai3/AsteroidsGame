@@ -15,8 +15,6 @@ public void setup()
 public void draw() 
 {
   background(0);
-  red.show();
-  red.move();
   
   for ( int i = 0; i < lit.length; i++){
     lit[i].show();
@@ -25,14 +23,15 @@ public void draw()
     echo[i].show();
     echo[i].move();
    }
-  
+    red.show();
+  red.move();
 }
 public void keyPressed(){
   if(key == 'd'){
-    red.turn(3);
+    red.turn(4);
   }
   if(key == 'a'){
-    red.turn(-3);
+    red.turn(-4);
   }
   if(key == 'w'){
     red.setX((int)(Math.random()*501));
