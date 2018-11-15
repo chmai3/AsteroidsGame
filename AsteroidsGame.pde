@@ -1,24 +1,47 @@
-Spaceship red [];
+Spaceship red = new Spaceship();
+Star[] lit = new Star[200];
+Asteroids[]echo = new Asteroids[4];
 public void setup() 
 {
-  fill(0);
   size(500,500);
-  red = new Spaceship[1];
-  for ( int i = 0; i < Spaceship; i++){
-    red[i] = new Spaceship();
-  }
   
+  for ( int i = 0; i < lit.length; i++){
+    lit[i] = new Star();
+  }
+   for ( int i = 0; i < echo.length; i++){
+    echo[i] = new Asteroids();
+   }
 }
 public void draw() 
 {
-  background(myColor);
-  for ( int i = 0; i < Spaceship; i++){
-    red[i].show;
-    red[i].turn;
-    red[i].draw;
+  background(0);
+  red.show();
+  red.move();
+  
+  for ( int i = 0; i < lit.length; i++){
+    lit[i].show();
+  }
+   for ( int i = 0; i < echo.length; i++){
+    echo[i].show();
+    echo[i].move();
+   }
   
 }
-public void turn()
-{
-  
+public void keyPressed(){
+  if(key == 'd'){
+    red.turn(3);
+  }
+  if(key == 'a'){
+    red.turn(-3);
+  }
+  if(key == 'w'){
+    red.setX((int)(Math.random()*501));
+    red.setY((int)(Math.random()*501));
+    red.setDirectionX(0);
+    red.setDirectionY(0);
+    red.setPointDirection((int)(Math.random() * 365));
+  }
+  if(key == 's'){
+    red.accelerate(3);
+  }
 }
